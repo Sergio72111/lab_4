@@ -1,0 +1,8 @@
+[
+{
+  "directory": "C:/Laba_4_prog/lab_4/build",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -g -std=gnu++11 -o CMakeFiles\\MyExecutable.dir\\main.cpp.obj -c C:\\Laba_4_prog\\lab_4\\main.cpp",
+  "file": "C:\\Laba_4_prog\\lab_4\\main.cpp",
+  "output": "CMakeFiles\\MyExecutable.dir\\main.cpp.obj"
+}
+]
