@@ -2,46 +2,6 @@
 	"entries" : 
 	[
 		{
-			"name" : "Boost_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "The directory containing a CMake configuration file for Boost."
-				}
-			],
-			"type" : "PATH",
-			"value" : "C:/msys64/mingw64/lib/cmake/Boost-1.84.0"
-		},
-		{
-			"name" : "Boost_INCLUDE_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Path to a file."
-				}
-			],
-			"type" : "PATH",
-			"value" : "C:/msys64/mingw64/include"
-		},
-		{
-			"name" : "Boost_UNIT_TEST_FRAMEWORK_LIBRARY_RELEASE",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : ""
-				}
-			],
-			"type" : "STRING",
-			"value" : "C:/msys64/mingw64/lib/libboost_unit_test_framework-mt.dll"
-		},
-		{
 			"name" : "CMAKE_ADDR2LINE",
 			"properties" : 
 			[
@@ -1330,18 +1290,6 @@
 			"value" : "ON"
 		},
 		{
-			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_Boost",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Details about finding Boost"
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "[C:/msys64/mingw64/lib/cmake/Boost-1.84.0/BoostConfig.cmake][cfound components: unit_test_framework ][v1.84.0()]"
-		},
-		{
 			"name" : "MyProject_BINARY_DIR",
 			"properties" : 
 			[
@@ -1388,38 +1336,6 @@
 			],
 			"type" : "INTERNAL",
 			"value" : "TRUE"
-		},
-		{
-			"name" : "boost_headers_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "The directory containing a CMake configuration file for boost_headers."
-				}
-			],
-			"type" : "PATH",
-			"value" : "C:/msys64/mingw64/lib/cmake/boost_headers-1.84.0"
-		},
-		{
-			"name" : "boost_unit_test_framework_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "The directory containing a CMake configuration file for boost_unit_test_framework."
-				}
-			],
-			"type" : "PATH",
-			"value" : "C:/msys64/mingw64/lib/cmake/boost_unit_test_framework-1.84.0"
 		}
 	],
 	"kind" : "cache",

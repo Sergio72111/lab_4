@@ -1,12 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 project(MyProject)
 
-# Установка стандарта C++
 set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-# Поиск библиотеки Boost, необходимой для тестирования
-find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 
 # Добавление исполняемого файла
 add_executable(MyExecutable main.cpp)
@@ -20,7 +15,7 @@ install(TARGETS MyExecutable DESTINATION bin)
 # Установка конфигурации для пакета
 if(APPLE)
     set(CPACK_GENERATOR "DMG")  # Для macOS используем DMG
-    set(CPACK_PACKAGE_FILE_NAME "MyExecutable-macos")  # Имя пакета для macOS
+    set(CPACK_PACKAGE_FILE_NAME "MyExecutable-macos")  # Имя пакета для macOSз
 elseif(UNIX)
     set(CPACK_GENERATOR "DEB")  # Для Linux используем DEB
     set(CPACK_PACKAGE_FILE_NAME "MyExecutable-linux")  # Имя пакета для Linux
@@ -39,6 +34,3 @@ set(CPACK_PACKAGE_HOMEPAGE "https://example.com")
 set(CPACK_PACKAGE_LICENSE "MIT")
 
 include(CPack)  # Включение CPack
-
-enable_testing()  # Включает поддержку тестирования в проекте
-

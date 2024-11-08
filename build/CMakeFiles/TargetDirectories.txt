@@ -1,7 +1,6 @@
 C:/Laba_4_prog/lab_4/build/CMakeFiles/MyExecutable.dir
 C:/Laba_4_prog/lab_4/build/CMakeFiles/package.dir
 C:/Laba_4_prog/lab_4/build/CMakeFiles/package_source.dir
-C:/Laba_4_prog/lab_4/build/CMakeFiles/test.dir
 C:/Laba_4_prog/lab_4/build/CMakeFiles/edit_cache.dir
 C:/Laba_4_prog/lab_4/build/CMakeFiles/rebuild_cache.dir
 C:/Laba_4_prog/lab_4/build/CMakeFiles/list_install_components.dir
