@@ -15,7 +15,7 @@ install(TARGETS MyExecutable DESTINATION bin)
 # Установка конфигурации для пакета
 if(APPLE)
     set(CPACK_GENERATOR "DMG")  # Для macOS используем DMG
-    set(CPACK_PACKAGE_FILE_NAME "MyExecutable-macos")  # Имя пакета для macOSз
+    set(CPACK_PACKAGE_FILE_NAME "MyExecutable-macos")  # Имя пакета для macOS
 elseif(UNIX)
     set(CPACK_GENERATOR "DEB")  # Для Linux используем DEB
     set(CPACK_PACKAGE_FILE_NAME "MyExecutable-linux")  # Имя пакета для Linux

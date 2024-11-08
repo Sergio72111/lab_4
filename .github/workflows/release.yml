@@ -1,96 +1,60 @@
-name: 'C++ CI'  # Название рабочего процесса
+name: 'C++ CI on macOS'
 
 on:
-  push:  # Запускает процесс при событии push
+  push:
     branches:
-      - main  # Для ветки main
-      - feature/github_actions  # Для веток с названием feature/github_actions
-
-permissions:
-  contents: write  # Права на запись в репозиторий
+      - main
+      - feature/github_actions
 
 jobs:
-  build:  # Определение задачи сборки
-    strategy:
-      matrix:  # Использует матрицу для запуска на нескольких ОС
-        os: [ubuntu-latest, macos-latest]  # Указывает, что задача будет выполняться на Ubuntu и macOS
-    runs-on: ${{ matrix.os }}  # Запускает задачу на ОС, указанной в матрице
+  build:
+    runs-on: macos-latest  # Используем macOS для выполнения работы
+    permissions:
+      contents: write  # Необходимое разрешение для создания релиза
 
-    steps:  # Шаги выполнения задачи
-      - uses: actions/checkout@v3  # Проверяет код репозитория
+    steps:
+      # Шаг 1: Проверка исходного кода
+      - name: Checkout code
+        uses: actions/checkout@v3
         with:
-          submodules: true  # Включает подмодули при проверке
+          submodules: true
 
-      - name: Install dependencies on Linux  # Установка зависимостей для Linux
-        if: ${{ runner.os == 'Linux' }}  # Условие для выполнения только на Linux
-        run: |  
-          sudo apt-get update  # Обновляет список пакетов
-          sudo apt-get install -y libboost-test-dev cmake g++  # Устанавливает необходимые библиотеки
+      # Шаг 2: Установка зависимостей (например, Boost)
+      - name: Install dependencies
+        run: brew install cmake boost  # Установка CMake и Boost через Homebrew
 
-      - name: Install dependencies on macOS  # Установка зависимостей для macOS
-        if: ${{ runner.os == 'macOS' }}  # Условие для выполнения только на macOS
-        run: |  
-          brew update  # Обновляет Homebrew
-          brew install boost cmake  # Устанавливает необходимые библиотеки
+      # Шаг 3: Генерация файлов сборки с помощью CMake
+      - name: Configure CMake
+        run: cmake . -DCMAKE_BUILD_TYPE=Release
 
-      - name: Configure with CMake  # Конфигурация проекта с помощью CMake
-        run: |  
-          mkdir build && cd build && cmake .. -DPATCH_VERSION=${{ github.run_number }}  
+      # Шаг 4: Сборка проекта
+      - name: Build project
+        run: cmake --build .
 
-      - name: Build the project  # Сборка проекта
-        run: |  
-          cd build && cmake --build .  
+      # Шаг 5: Запуск тестов (если у вас есть тесты)
+      - name: Run tests
+        run: ctest --output-on-failure
 
-      - name: Run tests  # Запуск тестов проекта
-        run: |  
-          cd build && ctest  
-
-      - name: Create package  # Создание пакета для распространения
-        run: |  
-          cd build && cmake --build . --target package  
-
-      - name: Create Release for Linux  # Создание релиза для Linux
-        if: ${{ runner.os == 'Linux' }}  
-        id: create_release_linux  
-        uses: actions/create-release@v1  
+      # Шаг 6: Создание релиза на GitHub (если необходимо)
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: "linux-${{ github.run_number }}"  
-          release_name: "Release Linux ${{ github.run_number }}"  
-          draft: false  
-          prerelease: false  
+          tag_name: ${{ github.run_number }}   # Используйте номер сборки как тег
+          release_name: Release ${{ github.run_number }}
+          draft: false
+          prerelease: false
 
-      - name: Upload Release Asset (Linux)  # Загрузка артефакта релиза для Linux
-        if: ${{ runner.os == 'Linux' }}  
-        uses: actions/upload-release-asset@v1  
+      # Шаг 7: Загрузка артефактов релиза (например, исполняемый файл)
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.create_release_linux.outputs.upload_url }}  
-          asset_path: ./build/helloworld-0.0.${{ github.run_number }}-Linux.deb  
-          asset_name: helloworld-0.0.${{ github.run_number }}-Linux.deb  
-          asset_content_type: application/vnd.debian.binary-package  
-
-      - name: Create Release for macOS  # Создание релиза для macOS
-        if: ${{ runner.os == 'macOS' }}  
-        id: create_release_macos   
-        uses: actions/create-release@v1  
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
-        with:
-          tag_name: "macos-${{ github.run_number }}"   
-          release_name: "Release macOS ${{ github.run_number }}"  
-          draft: false   
-          prerelease: false  
-
-      - name: Upload Release Asset (macOS)  # Загрузка артефакта релиза для macOS 
-        if: ${{ runner.os == 'macOS' }}  
-        uses: actions/upload-release-asset@v1  
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
-        with:
-          upload_url: ${{ steps.create_release_macos.outputs.upload_url }}  
-          asset_path: ./build/helloworld-0.0.${{ github.run_number }}-Darwin.dmg  
-          asset_name: helloworld-0.0.${{ github.run_number }}-Darwin.dmg  
-          asset_content_type: application/x-apple-diskimage 
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./MyExecutable   # Убедитесь, что путь правильный к вашему исполняемому файлу!
+          asset_name: MyExecutable       # Имя артефакта в релизе
+          asset_content_type: application/octet-stream  # Тип контента для исполняемого файла
