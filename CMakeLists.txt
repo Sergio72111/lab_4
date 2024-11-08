@@ -39,8 +39,7 @@ include(CPack)  # Включение CPack
 
 enable_testing()  # Включает поддержку тестирования в проекте
 
-# Если у вас есть тесты, добавьте их здесь
-# Например:
+# Если у вас есть тесты, добавьте их здесь (например):
 # add_executable(MyTests test.cpp)
 # target_link_libraries(MyTests MyExecutable)
 # add_test(NAME MyTests COMMAND MyTests)
