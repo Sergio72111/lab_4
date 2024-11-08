@@ -1,5 +1,3 @@
 # ninja log v5
-19	1660	7527901631039092	CMakeFiles/qqq.dir/main.cpp.obj	18ae08eeafc277cd
-1661	1908	7527901633484018	qqq.exe	47f26975c5c20406
-3	528	7527928167405726	CMakeFiles/MyExecutable.dir/main.cpp.obj	1cadb93b04dd07dc
-538	653	7527928168615984	MyExecutable.exe	4e52ad1a9b4833c1
+2	570	7527928573718508	CMakeFiles/MyExecutable.dir/main.cpp.obj	1cadb93b04dd07dc
+572	677	7527928574758517	MyExecutable.exe	4e52ad1a9b4833c1
