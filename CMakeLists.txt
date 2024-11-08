@@ -5,6 +5,9 @@ project(MyProject)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# Поиск библиотеки Boost, необходимой для тестирования
+find_package(Boost COMPONENTS unit_test_framework REQUIRED)
+
 # Добавление исполняемого файла
 add_executable(MyExecutable main.cpp)
 
@@ -39,7 +42,3 @@ include(CPack)  # Включение CPack
 
 enable_testing()  # Включает поддержку тестирования в проекте
 
-# Если у вас есть тесты, добавьте их здесь (например):
-# add_executable(MyTests test.cpp)
-# target_link_libraries(MyTests MyExecutable)
-# add_test(NAME MyTests COMMAND MyTests)
