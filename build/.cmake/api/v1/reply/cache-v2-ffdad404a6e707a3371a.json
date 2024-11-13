@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Laba_4_prog/lab_4/build"
+			"value" : "c:/Lab_4.prog.new/lab_4/build"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -142,8 +142,8 @@
 					"value" : "CXX compiler"
 				}
 			],
-			"type" : "FILEPATH",
-			"value" : "C:/msys64/mingw64/bin/c++.exe"
+			"type" : "STRING",
+			"value" : "C:/msys64/mingw64/bin/g++.exe"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER_AR",
@@ -286,8 +286,8 @@
 					"value" : "C compiler"
 				}
 			],
-			"type" : "FILEPATH",
-			"value" : "C:/msys64/mingw64/bin/cc.exe"
+			"type" : "STRING",
+			"value" : "C:/msys64/mingw64/bin/gcc.exe"
 		},
 		{
 			"name" : "CMAKE_C_COMPILER_AR",
@@ -559,7 +559,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Laba_4_prog/lab_4/build/CMakeFiles/pkgRedirects"
+			"value" : "C:/Lab_4.prog.new/lab_4/build/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -631,7 +631,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Laba_4_prog/lab_4"
+			"value" : "C:/Lab_4.prog.new/lab_4"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1299,7 +1299,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Laba_4_prog/lab_4/build"
+			"value" : "C:/Lab_4.prog.new/lab_4/build"
 		},
 		{
 			"name" : "MyProject_IS_TOP_LEVEL",
@@ -1323,7 +1323,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Laba_4_prog/lab_4"
+			"value" : "C:/Lab_4.prog.new/lab_4"
 		},
 		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",

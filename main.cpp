@@ -45,13 +45,6 @@ public:
         }
     }
 
-    size_type max_size() const noexcept {
-        return std::min<size_type>(
-            std::numeric_limits<size_type>::max(),
-            std::numeric_limits<size_type>::max() / sizeof(T)
-        );
-    }
-
     template <typename U, typename... Args>
     void construct(U* p, Args&&... args) {
         new (p) U(std::forward<Args>(args)...);
@@ -129,7 +122,7 @@ int factorial(int n) {
 int main() {
     // 1. Создание экземпляра std::map<int, int>;
     std::map<int, int> map1;
-    
+
     // 2. Заполнение 10 элементами, где ключ – это число от 0 до 9, а значение – факториал ключа;
     for (int i = 0; i < 10; ++i) {
         map1[i] = factorial(i);
@@ -146,12 +139,12 @@ int main() {
     // 5. Вывод на экран всех значений (ключ и значение разделены пробелом), хранящихся в контейнере;
     std::cout << "map1:" << std::endl;
     for (const auto& [key, value] : map1) {
-        std::cout << key << " " << value << std::endl;
+        std::cout << "Key: " << key << ", Value: " << value << std::endl;
     }
 
     std::cout << "map2:" << std::endl;
     for (const auto& [key, value] : map2) {
-        std::cout << key << " " << value << std::endl;
+        std::cout << "Key: " << key << ", Value: " << value << std::endl;
     }
 
     // 6. Создание экземпляра своего контейнера для хранения значений типа int;

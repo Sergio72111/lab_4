@@ -1,4 +1,4 @@
-# Install script for directory: C:/Laba_4_prog/lab_4
+# Install script for directory: C:/Lab_4.prog.new/lab_4
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -38,7 +38,7 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "C:/Laba_4_prog/lab_4/build/MyExecutable.exe")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "C:/Lab_4.prog.new/lab_4/build/MyExecutable.exe")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/MyExecutable.exe" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/MyExecutable.exe")
     if(CMAKE_INSTALL_DO_STRIP)
@@ -48,7 +48,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  include("C:/Laba_4_prog/lab_4/build/CMakeFiles/MyExecutable.dir/install-cxx-module-bmi-Debug.cmake" OPTIONAL)
+  include("C:/Lab_4.prog.new/lab_4/build/CMakeFiles/MyExecutable.dir/install-cxx-module-bmi-Debug.cmake" OPTIONAL)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -59,5 +59,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Laba_4_prog/lab_4/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Lab_4.prog.new/lab_4/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
